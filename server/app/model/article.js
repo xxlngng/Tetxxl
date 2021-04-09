@@ -1,6 +1,7 @@
 
 // 用户字段设计
 module.exports = app => {
+  // console.log("object", app);
   const mongoose = app.mongoose
   const Schema = mongoose.Schema
 

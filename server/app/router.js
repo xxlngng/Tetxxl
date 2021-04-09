@@ -4,6 +4,7 @@
  * @param {Egg.Application} app - egg application
  */
 module.exports = app => {
+  // console.log('app',app)
   const { router, controller } = app
   const jwt = app.middleware.jwt({ app })
   router.get('/', controller.home.index)

@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>用户中心</h1>
-    <i class="el-icon-loading"></i>
+    <!-- <i class="el-icon-loading"></i> -->
     <div ref='drag' id="drag">
       <input type="file" name="file" @change="handleFileChange">
     </div>

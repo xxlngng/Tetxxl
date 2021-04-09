@@ -29,6 +29,11 @@
             <el-button type='primary'>写文章</el-button>
           </nuxt-link>
         </el-menu-item>
+        <el-menu-item v-if="userinfo.id" index="5" class="pull-right">
+          <nuxt-link to="/uc">
+            <el-button type='primary'>上传</el-button>
+          </nuxt-link>
+        </el-menu-item>
 
         <el-menu-item v-if="!userinfo.id" index="2" class="pull-right">
           <nuxt-link to="/register">注册</nuxt-link>

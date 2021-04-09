@@ -109,7 +109,6 @@ class UserController extends BaseController {
   }
   async follow() {
     const { ctx } = this
-
     const me = await ctx.model.User.findById(ctx.state.userid)
     const isFollow = !!me.following.find(id => id.toString() === ctx.params.id)
     if (!isFollow) {

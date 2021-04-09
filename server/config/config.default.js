@@ -33,6 +33,7 @@ module.exports = appInfo => {
     ...userConfig,
     security: {
       csrf: {
+        // 关掉验证
         enable: false,
       },
     },
