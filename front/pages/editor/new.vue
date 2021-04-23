@@ -32,7 +32,7 @@ export default {
   data(){
     return {
       // timer:
-      content:`# 开课吧${String(Math.random()).slice(2,6)}
+      content:`# 工作吧${String(Math.random()).slice(2,6)}
 * 上课
 * 吃饭
 * 写代码
@@ -47,6 +47,7 @@ export default {
     }
   },
   mounted(){
+    // 不用做响应式
     this.timer = null
     this.bindEvents()
     
