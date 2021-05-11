@@ -1,11 +1,22 @@
-FROM keymetrics/pm2:latest-alpine
-ENV mypath /usr/src/app
-WORKDIR $mypath
-ADD . $mypath
+FROM node:10-alpine
+# ENV mypath /usr/src/app
+WORKDIR /usr/src/app
+# ADD . $mypath
+# 拷贝package.json文件到工作目录
+# !!重要：package.json需要单独添加。
+# Docker在构建镜像的时候，是一层一层构建的，仅当这一层有变化时，重新构建对应的层。
+# 如果package.json和源代码一起添加到镜像，则每次修改源码都需要重新安装npm模块，这样木有必要。
+# 所以，正确的顺序是: 添加package.json；安装npm模块；添加源代码。
+COPY package.json /usr/src/app/package.json
+
 RUN npm config set registry https://registry.npm.taobao.org/ && \  
     npm i
-# RUN npm i
-EXPOSE 3000
+
+# 拷贝所有源代码到工作目
+COPY . /usr/src/app
+
+EXPOSE 7001
 #pm2在docker中使用命令为pm2-docker
 # CMD ["pm2-runtime", "start", "--json", "process.json"]
-CMD ["npm", "run",  "start"]
+# CMD ["npm", "run",  "start"]
+CMD npm start
